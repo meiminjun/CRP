@@ -1,0 +1,29 @@
+{
+	"rows": [
+		{
+			"Image": "resources/images/main1.png",
+			"Cont": "News Feed",
+			"Status": "resources/images/main1_Dir.png"
+		}, {
+			"Image": "resources/images/main2.png",
+			"Cont": "Research Report",
+			"Status": "resources/images/main2_Dir.png"
+		}, {
+			"Image": "resources/images/main3.png",
+			"Cont": "Competitors Tracking",
+			"Status": "resources/images/main3_Dir.png"
+		}, {
+			"Image": "resources/images/main4.png",
+			"Cont": "Innovation",
+			"Status": "resources/images/main4_Dir.png"
+		}, {
+			"Image": "resources/images/main5.png",
+			"Cont": "Stock Price",
+			"Status": "resources/images/main5_Dir.png"
+		}, {
+			"Image": "resources/images/main6.png",
+			"Cont": "Indicators & Events",
+			"Status": "resources/images/main6_Dir.png"
+		}
+	]
+}
