@@ -38,23 +38,27 @@ Ext.define('CRP.controller.NewsCtr', {
 			target.src = "resources/images/collected.png";
 			return false;
 		}else if (className === "undownload") {
-			alert("开始下载");
+			Ext.Msg.alert('Tips', 'Downloading');
 			return false;
 		}else if (className === "share") {
-			alert("分享");
+//			alert("分享");
+			Ext.Msg.alert('Tips', 'Share');
 			return false;
 		}else if (className === "email") {
-			alert("发送邮件");
+			PhoneGapAPI.sendMail(record.data.Email);
 			return false;
 		}
-		alert("进入详情页面");
+		//alert("进入详情页面");
+		if(record.data.PDFUrl !== ''){
+			this.goToPDFFn(record.data.PDFUrl);	
+		}
 	},
 	/**
 	 * 根据搜索内容显示对应数据
 	 * @param {String} cont
 	 */
 	searchCont:function(cont) {
-		alert(cont);
+//		alert(cont);
 		var store = Ext.getStore('newsListStore');
 		console.log(store);
 		store.loadPage(1,{
@@ -68,5 +72,14 @@ Ext.define('CRP.controller.NewsCtr', {
 			},
 			scope : this
 		});
+	},
+	/**
+	 * PDF预览
+	 */
+	goToPDFFn: function(pdfUrl) {
+		var me = this,
+			url = '';
+		url = Ext.os.is.Android ? '/CRPAndroid_UAT/'+pdfUrl : pdfUrl;		
+		PhoneGapAPI.checkAtt(url);
 	}
 });

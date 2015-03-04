@@ -180,6 +180,8 @@ Ext.define('CRP.controller.NavController', {
 	    	            }, 300);	
 	            	}
 	            })(component,draggable);
+	            // 启用draggable事件
+	            component.getDraggable().resumeEvents();	
 	            // 异步清空
 	            Ext.Function.defer(function(){me.clearCurrentPage(component,key);},500);
 			}

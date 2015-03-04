@@ -34,7 +34,10 @@ Ext.define('CRP.view.Main', {
                         iconCls: 'collectBtnCls',
                         docked: 'right',
                         ui: 'plain',
-                        iconMask: true
+                        iconMask: true,
+                        handler:function(e) {
+                        	mainCtr.jumpToCollect();
+                        }
 //                      text: 'MyButton1'
                     }
                 ]

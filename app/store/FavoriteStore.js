@@ -1,22 +1,25 @@
-Ext.define('CRP.store.StockStore', {
+Ext.define('CRP.store.FavoriteStore', {
 	extend: 'Ext.data.Store',
 
 	requires: [
-		'CRP.model.StockModel',
+		'CRP.model.NewsModel',
 		'Ext.data.proxy.Ajax',
 		'Ext.data.reader.Json'
 	],
 
 	config: {
 		autoLoad: false,
-		model: 'CRP.model.StockModel',
-		storeId: 'stockList',
+		model: 'CRP.model.NewsModel',
+		pageSize : 10,
 		proxy: {
 			type: 'ajax',
-			url:'resources/data/GetStockData.json',
+			url:'resources/data/GetFavorite.json',
+			limitParam : 'PageSize',
+			pageParam : 'currentPage',
 			reader: {
 				type: 'json',
-				rootProperty:'rows'
+				rootProperty:'rows',
+				totalProperty : 'totalCount'
 			}
 		},
 		listeners:[{
@@ -25,9 +28,8 @@ Ext.define('CRP.store.StockStore', {
 		}]
 	},
 	loadData:function(store,records,successful,operation,eOpts) {
-//		console.log("-------------------------------------"+records+"---------"+eOpts);
 		if (successful && operation.getResponse()) {
-			CRP.util.PubOperation.onlineLoad("stockList",operation.getResponse());
+			CRP.util.PubOperation.onlineLoad("favoriteList",operation.getResponse());
 		}
 	}
 });

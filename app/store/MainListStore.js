@@ -25,7 +25,7 @@ Ext.define('CRP.store.MainListStore', {
 		}]
 	},
 	loadData:function(store,records,successful,operation,eOpts) {
-		console.log("-------------------------------------"+records+"---------"+eOpts);
+//		console.log("-------------------------------------"+records+"---------"+eOpts);
 //		if (successful && operation.getResponse()) {
 //			iTenants.util.PubOperation.onlineLoad("newsList",operation.getResponse());
 //		}

@@ -6,19 +6,19 @@
 Ext.define('CRP.controller.Main', {
 	extend: 'Ext.app.Controller',
 	config: {
-        stores : ['MainListStore','OfflineLocalStore','NewsStore'],
+        stores : ['MainListStore','OfflineLocalStore','NewsStore','FavoriteStore'],
 	    models: ['MainListModel','NewsModel'],
 		refs: {
-			main : 'main list',
-			collectBtn: 'main #collectBtn'
+			main : 'main list'
+//			collectBtn: 'main #collectBtn'
 		},
 		control: {
 			main:{
 				itemsingletap: 'jumpToNews'
-			},
-			collectBtn: {
-				tap:'jumpToCollect'
 			}
+//			collectBtn: {
+//				tap:'jumpToCollect'
+//			}
 		}
 	},
 	/**
@@ -46,7 +46,7 @@ Ext.define('CRP.controller.Main', {
 	 * 进入News 页面
 	 */
 	jumpToNews:function(list, index, target, record, e, eOpts) {
-		if(index == "4") {	//进入股票页面
+		if(index == "0") {	//进入股票页面
 			navCtr.pushToNext('CRP.view.Stock', function(view) {
 				var store = Ext.getStore('stockList');
 				var param = {
@@ -55,13 +55,22 @@ Ext.define('CRP.controller.Main', {
 		            GPSLatitude:Global.latitude,
 		            language:Global.language
 				};
-				CRP.util.PubOperation.pubListLoad(store, param, true, true, 'stockList',function(){
-		//				console.log("---------回调----"+rows);
+				var detailPanel = view.down("container[name=detail]");
+				CRP.util.PubOperation.pubListLoad(store, param, true, true, 'stockList',function(response){
+					var detailObj = response.rows[0].detail,
+						titleText = response.rows[0].name;
+						detailObj.title = titleText;
+					detailPanel.setData(detailObj);
 				});
 			});
+		}else if (index == "5") { //进入PDF
+			mainCtr.goToPDFFn();	
 		}else {
 			navCtr.pushToNext('CRP.view.News', function(view) {
-				var store = Ext.getStore('newsListStore');
+				var store = Ext.getStore('newsListStore'),
+					titlebar = view.down('titlebar'),
+					titleText = record.get('Cont');
+				titlebar.setTitle(titleText);
 				var param = {
 					ADAccount: Global.userAccount,
 		            GPSLongitude: Global.longitude,
@@ -74,7 +83,19 @@ Ext.define('CRP.controller.Main', {
 			});
 		}
 	},
+	//进入收藏页面
 	jumpToCollect:function() {
-		alert("进入收藏页面");
+		navCtr.pushToNext('CRP.view.Favorite',function(view){
+			favoriteCtr.favoriteInit(view);
+		});
+	},
+	goToPDFFn: function() {
+		var me = this,
+			pdfUrl = '',
+			url = '';
+		pdfUrl = 'resources/data/Evevts.pdf';
+		url = Ext.os.is.Android ? '/CRPAndroid_UAT/'+pdfUrl : pdfUrl;
+		
+		PhoneGapAPI.checkAtt(url);
 	}
 });

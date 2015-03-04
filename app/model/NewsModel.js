@@ -27,6 +27,12 @@ Ext.define('CRP.model.NewsModel', {
             	name:'Time'
             },{
             	name:'Unread'
+            },
+            {
+            	name: 'Email'
+            },
+            {
+            	name: 'PDFUrl'
             }
         ]
     }

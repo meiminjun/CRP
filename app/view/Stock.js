@@ -42,13 +42,13 @@ Ext.define('CRP.view.Stock', {
 					directionLock: true,
 					direction: 'vertical'
 				},
-				
+				loadingText : false,
 				store:'stockList',
 				itemHeight: 49,
 				pressedCls: 'itemPressed',				
                 itemTpl: [
                     '<div class="row">',
-                    	'<span>{name}</span>',
+                    	'<span style="margin-left:8px;">{name}</span>',
                     	'<span style="position:absolute;left:35%;width:86px;text-align:right;">{middle}</span>',
                     	
 //                  	'<a class="updown"><span>+</span>{right}</a>',
@@ -58,9 +58,9 @@ Ext.define('CRP.view.Stock', {
 						updateHtml: function(str){
 							var	num = str.substr(1);
 							if(str.indexOf("+") === 0) {
-								return '<a class="up"><span class="sign">+</span>'+num+'</a>';
+								return '<a class="up">+ '+num+'</a>';
 							}else {
-								return '<a class="down"><span class="sign">-</span>'+num+'</a>';
+								return '<a class="down">- '+num+'</a>';
 							}
 						}
 					}
@@ -90,9 +90,9 @@ Ext.define('CRP.view.Stock', {
 //				style:'background: rgba(36, 36, 36,0.9);font-family:Hiragino Sans GB_W3;font-size:20px;',
                 tpl: [
 //              	'<tpl for=".">',
-					'<h3 class="tableTitle">CMT lnc.</h3>',
+					'<h3 class="tableTitle">{title}</h3>',
                     '<table border="0" width="100%" height="100%">',
-                    '<caption>stock prices are 20 minutes delayed</caption>',
+                    '<caption>Stock prices are 20 minutes delayed</caption>',
                     '<tr>',
                     '<th>OPEN</th>',
                     '<td>{open}</td>',
@@ -125,8 +125,8 @@ Ext.define('CRP.view.Stock', {
                     '</tr>',
                     '</table>',
 //                  '</tpl>'
-                    ],
-                data:{"open":"112.05","cap":"668.58","high":"114.52","whigh":"119.75","low":"112.01","wlow":"70.51","vol":"33.72","avgvol":"51.74","pe":"17.67","yield":"1.7%"}
+                    ]
+//              data:{"open":"112.05","cap":"668.58","high":"114.52","whigh":"119.75","low":"112.01","wlow":"70.51","vol":"33.72","avgvol":"51.74","pe":"17.67","yield":"1.7%"}
             }
         ]
     }

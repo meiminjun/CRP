@@ -1,28 +1,33 @@
 {
-	"rows": [
-		{
+	"rows": [{
+			"Image": "resources/images/main5.png",
+			"LastVisit": "One day ago",
+			"Cont": "Stock Prices",
+			"Status": "resources/images/main5_Dir.png"
+		}, {
 			"Image": "resources/images/main1.png",
+			"LastVisit": "One day ago",
 			"Cont": "News Feed",
 			"Status": "resources/images/main1_Dir.png"
 		}, {
 			"Image": "resources/images/main2.png",
-			"Cont": "Research Report",
+			"LastVisit": "One day ago",
+			"Cont": "Research Reports",
 			"Status": "resources/images/main2_Dir.png"
 		}, {
 			"Image": "resources/images/main3.png",
-			"Cont": "Competitors Tracking",
+			"LastVisit": "Two days ago",
+			"Cont": "Consultancy Reports",
 			"Status": "resources/images/main3_Dir.png"
 		}, {
 			"Image": "resources/images/main4.png",
+			"LastVisit": "One month ago",
 			"Cont": "Innovation",
 			"Status": "resources/images/main4_Dir.png"
 		}, {
-			"Image": "resources/images/main5.png",
-			"Cont": "Stock Price",
-			"Status": "resources/images/main5_Dir.png"
-		}, {
 			"Image": "resources/images/main6.png",
-			"Cont": "Indicators & Events",
+			"LastVisit": "One day ago",
+			"Cont": "Key Event Calendar",
 			"Status": "resources/images/main6_Dir.png"
 		}
 	]

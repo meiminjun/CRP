@@ -11,6 +11,8 @@ Ext.define("CRP.model.MainListModel", {
 			name: 'Cont'
 		}, {
 			name: 'Status'
+		},{
+			name: 'LastVisit'
 		}]
 	}
 });

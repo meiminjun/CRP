@@ -15,7 +15,9 @@ Ext.define("CRP.model.StockModel", {
 			name: 'right'
 		},{
 			name: 'detail'
-		}, {
+		},{
+			name: 'title'
+		},{
 			name: 'open'
 		}, {
 			name: 'cap'

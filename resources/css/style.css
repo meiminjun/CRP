@@ -90,11 +90,12 @@ body {
 /*返回按钮样式*/
 
 .backBtnCls {
-	width: 20px !important;
-	height: 20px !important;
+	width: 16px !important;
+	height: 16px !important;
 	background-size: 13px !important;
 	background-color: transparent !important;
 	background-image: url(../images/icon_back.png) !important;
+	margin-left: -7px;
 }
 .x-button-customBtn {
 	background-color: #1F85C5 !important;
@@ -347,7 +348,7 @@ List页面 设置infinite时的loadmore按钮高度
 	height: auto;
 }
 /*首页列表*/
-
+/* 
 .mainList .x-innerhtml {
 	padding: 5px 6px !important
 }
@@ -367,8 +368,8 @@ List页面 设置infinite时的loadmore按钮高度
 	position: absolute;
 	right: 20px !important;
 	top: -4px !important;
-	/*width:25px !important ;*/
-	/*height:25px !important;*/
+	width:25px !important ;
+	height:25px !important;
 	
 	background-size: 25px 25px;
 	background-repeat: no-repeat;
@@ -426,6 +427,35 @@ List页面 设置infinite时的loadmore按钮高度
 	-webkit-box-orient: vertical;
 	min-height: 40px;
 	max-height: 40px
+} */
+.mainList{
+	background-color: white;
+}
+.mainList .x-list-item.x-list-item-tpl {
+	background-color: transparent !important;
+	background-image: url("../images/icon_odd.png") !important;
+	background-size: 3.5em !important;
+	border-top: none !important;
+	border-bottom: none !important;
+}
+.mainList .x-list-item .x-innerhtml{
+	padding: 0px !important;
+}
+.mainList .x-list-item .content{
+	margin-left: 57px;
+	padding-left: 10px;  
+	height: 60px; 
+	border-bottom: 1px solid #d1d3d4; 
+	
+	display:-webkit-box; 
+	display: flex; 
+	
+	-webkit-box-pack: center;
+	justify-content: center;
+	
+	-webkit-box-orient: vertical;
+	flex-direction: column;
+	
 }
 /*show tips for toast style,loading保留*/
 
@@ -533,7 +563,7 @@ List页面 设置infinite时的loadmore按钮高度
 	border-radius: .2em;
 	width: 71px;
 	height: 71px;
-	margin: -0.9em auto auto -.3em;
+	margin: -0.9em auto auto 0px;
 }
 .news .listImgDef {
 	width: 70px;
@@ -565,20 +595,24 @@ List页面 设置infinite时的loadmore按钮高度
 	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
 }
 .news .downloaded {
-	width: 28px;
-	height: 28px;
+	width: 39px;
+	height: 39px;
 	float: right;
 	position: relative;
 	margin: -2.9em 0.3em auto auto;
-	-webkit-border-image: url('../images/downloaded.png') 0 0 0 0 stretch stretch;
+	background: url(../images/downloaded.png) no-repeat;
+	background-size: 21px 21px;
+	background-position: center;
 }
 .news .undownload {
-	width: 28px;
-	height: 28px;
+	width: 39px;
+	height: 39px;
 	float: right;
 	position: relative;
 	margin: -2.9em 0.3em auto auto;
-	-webkit-border-image: url('../images/undownload.png') 0 0 0 0 stretch stretch;
+	background: url(../images/undownload.png) no-repeat;
+	background-size: 21px 21px;
+	background-position: center;
 }
 .news .detailImg {
 	width: 32px;
@@ -613,28 +647,48 @@ List页面 设置infinite时的loadmore按钮高度
 }
 
 .news .expand .email {
-	width:20px;
-	height:20px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(../images/email.png) no-repeat;
+	background-size: 20px 20px;
+	background-position: 0px 4px;
 }
 .news .expand .share {
-	width:20px;
-	height:20px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(../images/share.png) no-repeat;
+	background-size: 20px 20px;
+	background-position: 0px 4px;
 }
-.news .expand .collected,.notCollect {
-	width:20px;
-	height:20px;
+.news .expand .notCollect {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(../images/notCollect.png) no-repeat;
+	background-size: 20px 20px;
+	background-position: 0px 4px;
+}
+.news .expand .collected {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(../images/collected.png) no-repeat;
+	background-size: 20px 20px;
+	background-position: 0px 4px;
 }
 .news .expand .split {
 	color: #999;
 	padding: 0 4px;
-	vertical-align: text-bottom;
+	vertical-align: super;
 }
 .news .time{
 	float: right;
 	margin-top: -15px;
 	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
 	font-size: 12px;
-	color: #475763;
+	color: #94cae6;
 }
 .news .x-innerhtml {
 	padding-bottom: 9px !important;
@@ -643,6 +697,7 @@ List页面 设置infinite时的loadmore按钮高度
 	position: absolute;
 	right: 0px;
 	top: 0px;
+	width: 20px;
 }
 /*股票界面*/
 .stockCss {
@@ -676,32 +731,42 @@ List页面 设置infinite时的loadmore按钮高度
 .stockList .row .up {
 	float: right;
 	display: inline-block;
-	width: 78px;
-	text-align: right;
+	width: 79px;
+	text-align: center;
 	height: 30px;
 	line-height: 30px;
 	margin-top: -8px;
 	background: #f12f2f;
 	border: 1px solid #f12f2f;
 	border-radius: 3px;
-	padding: 0px 4px;
+	padding: 4px 4px;
+	font: normal 15px 'Tahoma';
 }
 .stockList .row .down {
-	float: right;
+	/*float: right;
 	display: inline-block;
 	width: 78px;
-	text-align: right;
+	text-align: center;
 	height: 30px;
 	line-height: 30px;
 	margin-top: -8px;
 	background: #21de40;
 	border: 1px solid #21de40;
 	border-radius: 3px;
-	padding: 0px 4px;
-}
-.stockList .row .sign {
-	float: left;
-	margin-left: 5px;
+	padding: 0px 4px;*/
+	
+	float: right;
+	display: inline-block;
+	width: 79px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	margin-top: -8px;
+	background: #21de40;
+	border: 1px solid #21de40;
+	border-radius: 3px;
+	padding: 4px 4px;
+	font: normal 15px 'Tahoma';
 }
 
 .stockTable {
@@ -738,4 +803,123 @@ List页面 设置infinite时的loadmore按钮高度
 }
 .stockTable table tr{	
 	border-top:1px solid #515C51;
+}
+/**
+favorite收藏界面
+*/
+.favoriteList{
+	background-color: white;
+}
+.favoriteList .x-list-item .x-innerhtml {
+	padding: 0px !important;
+}
+.favoriteList .searchfield {
+	padding: 9px 6px 6px 8px;
+	background: rgb(238, 238, 238);
+	height: 48px;
+}
+.favoriteList .searchfield .x-field-input {
+	padding: 0px;
+}
+.favoriteList .searchfield .x-input-el {
+	border: 1px solid #3899d6 !important;
+	border-radius: 16px;
+	min-height: 33px;
+	padding: 0px 40px 0px 28px;
+	font-size: 13px;
+	margin-left: 0px;
+	position: absolute;
+	-webkit-text-fill-color: initial;
+}
+.favoriteList .searchfield .x-clear-icon {
+	height: 32px;
+	font-size: 16px;
+	right: 12px;
+	margin: 0px;
+	top: 0px;
+}
+.favoriteList .searchfield .x-field-input:before {
+	content: '';
+	background-image: url(../images/search.png);
+	background-size: 20px !important;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	width: 19px;
+	left: .4em;
+	top: 7px;
+	height: 19px;
+	z-index: 1;
+}
+.favoriteList .x-list-emptytext{
+	background: white;
+}
+
+.favoriteList .content{
+	display:-webkit-box; 
+	display: flex; 
+	padding: 10px;
+}
+.favoriteList .content .img{
+	width: 70px;
+	height: 70px;
+}
+.favoriteList .content .img>img{
+	width: 70px;
+	height: 70px;
+}
+.favoriteList .content .infor{
+	padding-left: 10px;
+	height: 70px;
+	flex: 1;
+	-webkit-box-flex: 1;
+}
+.favoriteList .content .infor .title{
+	font-family: "微软雅黑";
+	color: #003e00;
+	font-size: 15px;
+	word-break: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.favoriteList .content .infor .cont{
+	color: #475763;
+	font-size: 13px;
+	word-break: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 80%;
+	height: 34px;
+	line-height: 17px;
+	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+}
+.favoriteList .content .infor .time{
+	color: #94cae6;
+	height: 12px;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: right;
+	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+}
+.favoriteList .deleteBtn{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 75px;
+	background-size: 75px 90px;
+	background-image: url(../images/delete.png);
+	display: none;
+}
+
+.favoriteList .leftStatus .content{
+	-webkit-transform: translate3d(-75px,0,0);
+	transform: translate3d(-75px,0,0);
+}
+
+.favoriteList .leftStatus .deleteBtn{
+	display: block;
 }

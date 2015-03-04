@@ -32,6 +32,8 @@ Ext.define('CRP.controller.StockCtr', {
 //		alert("跳转详情页面");
 		var me = this;
 		var detailData = record.get("detail");
-		me.getContain().updateData(detailData);		
+		var titleText = record.get('name');		
+		detailData.title = titleText;
+		me.getContain().updateData(detailData);	
 	}
 });

@@ -22,6 +22,7 @@ Ext.require('CRP.ux.PullRefreshFn');
 Ext.require('CRP.ux.override.Component');
 Ext.require('CRP.ux.override.Button');
 Ext.require('CRP.ux.override.Container');
+Ext.require('CRP.ux.override.DataView');
 Ext.require('CRP.ux.override.TitleBar');
 Ext.require('CRP.ux.override.Toolbar');
 Ext.require('CRP.ux.override.field.Field');
@@ -68,13 +69,16 @@ function initFn(){
             'Main',
             'MainList',
             'News',
-            'Stock'
+            'Stock',
+            'Favorite',
+            'FavoriteList'
 	    ],
 	    controllers: [
 	        'Main',
 	        'NewsCtr',
 	        'NavController',
-	        'StockCtr'
+	        'StockCtr',
+	        'Favorite'
 	    ],
 	    isIconPrecomposed: true,
 	    launch: function() {
@@ -82,6 +86,7 @@ function initFn(){
 			navCtr = this.getApplication().getController('NavController');
 			newsCtr = this.getApplication().getController('NewsCtr');
 			stockCtr = this.getApplication().getController('StockCtr');
+			favoriteCtr = this.getApplication().getController('Favorite');
 	    }
 	});
 }

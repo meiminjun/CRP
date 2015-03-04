@@ -139,5 +139,14 @@ var PhoneGapAPI = {
 		} else if (Ext.os.is.Android) {
 		 	Cordova.exec(function(result) {}, function(fail) {}, "UserInfo", "openUrl", [Url]);
 		}
+	},
+	/**
+	 * 发送邮件
+	 * */
+	sendMail : function(email){
+		Cordova.exec(function(result){
+			
+		},null, "Auth","SendMail",[email]);
+
 	}
 };

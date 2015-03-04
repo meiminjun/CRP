@@ -11,9 +11,14 @@ Ext.define('CRP.store.NewsStore', {
 		autoLoad: false,
 		model: 'CRP.model.NewsModel',
 		storeId: 'newsListStore',
+		pageSize : 15,
 		proxy: {
 			type: 'ajax',
 			url:'resources/data/GetNewList.json',
+			timeout : 50000,
+			startParam : false,
+			limitParam : 'PageSize',
+			pageParam : 'currentPage',
 			reader: {
 				type: 'json',
 				rootProperty:'rows'
